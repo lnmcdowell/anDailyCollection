@@ -38,7 +38,26 @@ public class FAAGetter {
                             temp_c: Double(xml.response.data.METAR[0].temp_c.text!) ?? 0,
                             wind_speed_kt: Int(xml.response.data.METAR[0].wind_speed_kt.text!) ?? 0,
                             visibility_statute_mi: Double(xml.response.data.METAR[0].visibility_statute_mi.text!) ?? 0)
-                print("did Metar")
+                print("here we go")
+              let iterator = xml.response.data.METAR.makeIterator()
+                while let next = iterator.next(){
+                    if let txt = next.raw_text.text{
+                        
+                    print(txt)
+                        let cc = next.sky_condition.makeIterator()
+                        while let nextcc = cc.next(){
+                          
+                            if let outpt = Int(nextcc.attributes["cloud_base_ft_agl"]!) {
+                              
+                                print("\(outpt)")
+                            }
+                        }
+                        
+                        
+                        
+                    }
+                }
+            
                 
             }
            
