@@ -17,6 +17,13 @@ class myCell: UICollectionViewCell {
             
         }
     }
+    var metar:Metar?{
+        didSet{
+            if let nmetar = metar {
+            titleView.text = nmetar.station_id
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame:frame)

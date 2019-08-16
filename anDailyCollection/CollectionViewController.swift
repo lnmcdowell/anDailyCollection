@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 private let CELL_ID = "CELL_ID"
+
+public var mySemaphore:Bool = false
 
 struct DataNode {
     var name:String?
@@ -17,7 +20,8 @@ struct DataNode {
 }
 class CollectionViewController: UICollectionViewController {
     var data:[DataNode] = [DataNode]()
-    
+    var metar:Metar?
+   
     override init(collectionViewLayout layout: UICollectionViewLayout){
         super.init(collectionViewLayout: layout)
         //fixes app crashing error for not having a layout parameter
@@ -34,7 +38,12 @@ class CollectionViewController: UICollectionViewController {
         navigationItem.title = "CView from Scratch"
         let fl = UICollectionViewFlowLayout()
         fl.itemSize = CGSize(width: 190, height: 150)
-        
+        showLoadingHUD()
+        //////////////////////////////////////////
+        let fAAGetter:FAAGetter = FAAGetter()
+        fAAGetter.getMetar(sender: self)
+     
+        //////////////////////////////////////////
         //fl.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         let cv = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: fl)
         self.collectionView = cv
@@ -65,6 +74,9 @@ class CollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        if self.metar != nil {
+          hideLoadingHUD()
+        }
         return 1
     }
 
@@ -76,9 +88,9 @@ class CollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_ID, for: indexPath) as! myCell
-    
+        print("getting cell")
         cell.data = data[indexPath.item]
-    
+        cell.metar = self.metar
         return cell
     }
 
@@ -117,5 +129,13 @@ class CollectionViewController: UICollectionViewController {
     
     }
     */
+    private func showLoadingHUD() {
+        let hud = MBProgressHUD.showAdded(to: self.collectionView, animated: true)
+        hud.label.text = "Loading..."
+    }
+    
+    private func hideLoadingHUD() {
+        MBProgressHUD.hide(for: self.collectionView, animated: true)
+    }
 
 }
