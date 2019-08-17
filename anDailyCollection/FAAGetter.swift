@@ -51,19 +51,21 @@ public class FAAGetter {
                               
                                 print("\(outpt)")
                             }
-                        }
+                        }//inner while iterator
                         
                         
                         
                     }
-                }
-            
+                }//outer while iterator
+                let boss = sender as! CollectionViewController
+                boss.metar = localmetar!
+                boss.response = xml.response
                 
-            }
+                boss.collectionView.reloadData()
+                
+            }//end if response data
            
-            let boss = sender as! CollectionViewController
-            boss.metar = localmetar!
-            boss.collectionView.reloadData()
+            
             
         }//end response
     

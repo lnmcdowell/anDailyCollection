@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import SwiftyXMLParser
 
 private let CELL_ID = "CELL_ID"
 
@@ -18,10 +19,15 @@ struct DataNode {
     var age:Int?
     var title:String?
 }
+
+
+
 class CollectionViewController: UICollectionViewController {
     var data:[DataNode] = [DataNode]()
     var metar:Metar?
    
+    var response:XML.Accessor?
+    
     override init(collectionViewLayout layout: UICollectionViewLayout){
         super.init(collectionViewLayout: layout)
         //fixes app crashing error for not having a layout parameter
@@ -83,14 +89,26 @@ class CollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return data.count
+        if let count = response {
+            let ret = Int(count.data.attributes["num_results"]!)!
+            
+            navigationItem.title = " \(ret) Results Returned"
+            return ret
+        } else {
+            return 0
+        }
+//        return data.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_ID, for: indexPath) as! myCell
         print("getting cell")
-        cell.data = data[indexPath.item]
-        cell.metar = self.metar
+        //cell.data = data[indexPath.item]
+       // cell.metar = self.metar
+        
+        if let myRx = response {
+           cell.metar_accessor = myRx.data.METAR[indexPath.item]
+        }
         return cell
     }
 
