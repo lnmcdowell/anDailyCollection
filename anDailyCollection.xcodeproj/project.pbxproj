@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FEF20092308B8A3003F01A5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF20082308B8A3003F01A5 /* TableViewController.swift */; };
+		2FEF200B2308BA9D003F01A5 /* myTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF200A2308BA9D003F01A5 /* myTableCell.swift */; };
 		677BF18723059EC600E2AC4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677BF18623059EC600E2AC4A /* AppDelegate.swift */; };
 		677BF18E23059EC800E2AC4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 677BF18D23059EC800E2AC4A /* Assets.xcassets */; };
 		677BF19123059EC800E2AC4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 677BF18F23059EC800E2AC4A /* LaunchScreen.storyboard */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2FEF20082308B8A3003F01A5 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		2FEF200A2308BA9D003F01A5 /* myTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTableCell.swift; sourceTree = "<group>"; };
 		351D81754250E5DEE473DEB5 /* Pods_anDailyCollection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_anDailyCollection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		47A9017D6D5FE5892E6E5EEF /* Pods-anDailyCollection.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-anDailyCollection.release.xcconfig"; path = "Target Support Files/Pods-anDailyCollection/Pods-anDailyCollection.release.xcconfig"; sourceTree = "<group>"; };
 		677BF18323059EC600E2AC4A /* anDailyCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = anDailyCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +80,8 @@
 				677BF19C2305ADA400E2AC4A /* Extensions.swift */,
 				67D9B7C22306FA99001EAE2C /* FAAGetter.swift */,
 				67D9B7C42306FCCE001EAE2C /* Objects.swift */,
+				2FEF20082308B8A3003F01A5 /* TableViewController.swift */,
+				2FEF200A2308BA9D003F01A5 /* myTableCell.swift */,
 			);
 			path = anDailyCollection;
 			sourceTree = "<group>";
@@ -212,6 +218,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				677BF19923059FAF00E2AC4A /* CollectionViewController.swift in Sources */,
+				2FEF20092308B8A3003F01A5 /* TableViewController.swift in Sources */,
+				2FEF200B2308BA9D003F01A5 /* myTableCell.swift in Sources */,
 				677BF19B2305A11E00E2AC4A /* myCell.swift in Sources */,
 				67D9B7C32306FA99001EAE2C /* FAAGetter.swift in Sources */,
 				677BF18723059EC600E2AC4A /* AppDelegate.swift in Sources */,

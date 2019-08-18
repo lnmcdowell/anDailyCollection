@@ -17,7 +17,7 @@ public class FAAGetter {
         
     }
     public func getMetar(sender:UIViewController) {
-       var localmetar:Metar?
+     
         Alamofire.request("https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&stationString=KDEN%20KSEA%20PHNL&hoursBeforeNow=2").response { response in
             if let data = response.data {
                 let xml = XML.parse(data)
@@ -34,11 +34,8 @@ public class FAAGetter {
 //                    }              //print(xml["response","data","METAR",i,"station_id"].text!)
 //                }
                 //print(datastring)// the top title of iTunes app raning.
-               localmetar = Metar(station_id:xml.response.data.METAR[0].station_id.text ?? "Empty",
-                            temp_c: Double(xml.response.data.METAR[0].temp_c.text!) ?? 0,
-                            wind_speed_kt: Int(xml.response.data.METAR[0].wind_speed_kt.text!) ?? 0,
-                            visibility_statute_mi: Double(xml.response.data.METAR[0].visibility_statute_mi.text!) ?? 0)
-                print("here we go")
+            
+               
               let iterator = xml.response.data.METAR.makeIterator()
                 while let next = iterator.next(){
                     if let txt = next.raw_text.text{
@@ -57,12 +54,20 @@ public class FAAGetter {
                         
                     }
                 }//outer while iterator
+                //switch sender.isKind(of: TableViewController)
+                if sender is CollectionViewController {
                 let boss = sender as! CollectionViewController
-                boss.metar = localmetar!
+               
                 boss.response = xml.response
                 
                 boss.collectionView.reloadData()
+                } else {
+                    let boss = sender as! TableViewController
                 
+                    boss.response = xml.response
+                    
+                    boss.tableView.reloadData()
+                }
             }//end if response data
            
             

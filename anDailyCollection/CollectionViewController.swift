@@ -1,3 +1,4 @@
+
 //
 //  CollectionViewController.swift
 //  anDailyCollection
@@ -57,9 +58,7 @@ class CollectionViewController: UICollectionViewController {
         self.collectionView.isUserInteractionEnabled = true
         // Register cell classes
         self.collectionView!.register(myCell.self, forCellWithReuseIdentifier: CELL_ID)
-        data.append(DataNode(name: "Nate", age: 41, title: "Coder"))
-        data.append(DataNode(name: "Bob", age: 73, title: "Engineer"))
-        data.append(DataNode(name: "Chris", age: 24, title: "Manager"))
+       
         data.append(DataNode(name: "Star", age: 23, title: "Extra"))
         data.append(DataNode(name: "Sam", age: 22, title: "Biggie"))
         
@@ -80,7 +79,7 @@ class CollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        if self.metar != nil {
+        if self.response != nil {
           hideLoadingHUD()
         }
         return 1
@@ -104,7 +103,7 @@ class CollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_ID, for: indexPath) as! myCell
         print("getting cell")
         //cell.data = data[indexPath.item]
-       // cell.metar = self.metar
+      
         
         if let myRx = response {
            cell.metar_accessor = myRx.data.METAR[indexPath.item]

@@ -1,21 +1,19 @@
 //
-//  myCell.swift
+//  myTableCell.swift
 //  anDailyCollection
 //
-//  Created by Nathaniel Mcdowell on 8/15/19.
+//  Created by Larry Mcdowell on 8/17/19.
 //  Copyright © 2019 Nathaniel Mcdowell. All rights reserved.
-//
-
 import UIKit
 import SwiftyXMLParser
 
-class myCell: UICollectionViewCell {
+class myTableCell: UITableViewCell {
     var metar_accessor:XML.Accessor?{
         didSet{
             if let metar_acc = metar_accessor {
                 ageView.text = metar_acc.flight_category.text
                 
-                   //print(metar_acc.flight_category.text ?? "No FC")
+                //print(metar_acc.flight_category.text ?? "No FC")
                 titleView.text = metar_acc.station_id.text ?? "None"
                 rawView.text = metar_acc.raw_text.text ?? "No raw text"
                 nameView.text = "default"
@@ -39,15 +37,16 @@ class myCell: UICollectionViewCell {
     var data:DataNode?{
         didSet{
             ageView.text = "\(data!.age ?? 0) yrs"
-             nameView.text = data?.name
-             titleView.text = data?.title
+            nameView.text = data?.name
+            titleView.text = data?.title
             
         }
     }
     
-
-    override init(frame: CGRect) {
-        super.init(frame:frame)
+ 
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    
+        super.init(style:style,reuseIdentifier:reuseIdentifier)
         contentView.backgroundColor = .yellow
         contentView.addSubview(ageView)
         contentView.addSubview(nameView)
@@ -72,7 +71,7 @@ class myCell: UICollectionViewCell {
     }
     
     var ageView:UILabel = {
-       let lbl = UILabel()
+        let lbl = UILabel()
         lbl.font = UIFont(name: "GillSans", size: 30)
         lbl.textColor = .red
         lbl.textAlignment = .left
@@ -124,3 +123,4 @@ class myCell: UICollectionViewCell {
         return rl
     }()
 }
+
