@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F088D9B230B47C000475633 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F088D9A230B47C000475633 /* MainViewController.swift */; };
 		2F08CE11230A0A9300ACBA64 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F08CE10230A0A9300ACBA64 /* ViewExtensions.swift */; };
 		2FEF20092308B8A3003F01A5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF20082308B8A3003F01A5 /* TableViewController.swift */; };
 		2FEF200B2308BA9D003F01A5 /* myTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF200A2308BA9D003F01A5 /* myTableCell.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F088D9A230B47C000475633 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2F08CE10230A0A9300ACBA64 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		2FEF20082308B8A3003F01A5 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		2FEF200A2308BA9D003F01A5 /* myTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTableCell.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				2FEF20082308B8A3003F01A5 /* TableViewController.swift */,
 				2FEF200A2308BA9D003F01A5 /* myTableCell.swift */,
 				2F08CE10230A0A9300ACBA64 /* ViewExtensions.swift */,
+				2F088D9A230B47C000475633 /* MainViewController.swift */,
 			);
 			path = anDailyCollection;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 				677BF18723059EC600E2AC4A /* AppDelegate.swift in Sources */,
 				67D9B7C52306FCCE001EAE2C /* Objects.swift in Sources */,
 				677BF19D2305ADA400E2AC4A /* Extensions.swift in Sources */,
+				2F088D9B230B47C000475633 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

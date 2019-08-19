@@ -144,4 +144,22 @@ class TableViewController: UITableViewController, XMLCarrier {
     private func hideLoadingHUD() {
         MBProgressHUD.hide(for: self.tableView, animated: true)
     }
+    //happens with phone call
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//
+//        if self.isMovingFromParent {
+//            // Your code...
+//            print("table View sees going back")
+//        }
+//    }
+    
+    override func willMove(toParent parent: UIViewController?) {
+        super.willMove(toParent: parent)
+        if parent == nil{
+            print("Nill parent")
+        }else{
+            print("Going back seen willMove")
+        }
+    }
 }
