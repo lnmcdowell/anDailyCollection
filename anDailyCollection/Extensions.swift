@@ -25,10 +25,10 @@ extension UIView {
             self.trailingAnchor.constraint(equalTo: trailing, constant: trailPad).isActive = true
         }
         if width != 0 {
-            self.widthAnchor.constraint(equalToConstant: width)
+            self.widthAnchor.constraint(equalToConstant: width).isActive = true
         }
         if height != 0 {
-            self.heightAnchor.constraint(equalToConstant: height)
+            self.heightAnchor.constraint(equalToConstant: height).isActive = true
         }
     }
 }

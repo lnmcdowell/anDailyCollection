@@ -18,7 +18,7 @@ public class FAAGetter {
     }
     public func getMetar(sender:UIViewController) {
      
-        Alamofire.request("https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&stationString=KDEN%20KSEA%20PHNL&hoursBeforeNow=2").response { response in
+        Alamofire.request("https://www.aviationweather.gov/adds/dataserver_current/httpparam?dataSource=metars&requestType=retrieve&format=xml&stationString=KGMU%20KAND%20KDEN%20KGSP&hoursBeforeNow=2").response { response in
             if let data = response.data {
                 let xml = XML.parse(data)
                 // let datastring = String.init(data: data, encoding: String.Encoding.utf8)
@@ -43,10 +43,11 @@ public class FAAGetter {
                     print(txt)
                         let cc = next.sky_condition.makeIterator()
                         while let nextcc = cc.next(){
-                          
-                            if let outpt = Int(nextcc.attributes["cloud_base_ft_agl"]!) {
+                            if let bases = nextcc.attributes["cloud_base_ft_agl"]{
+                            if let outpt = Int(bases) {
                               
                                 print("\(outpt)")
+                            }
                             }
                         }//inner while iterator
                         

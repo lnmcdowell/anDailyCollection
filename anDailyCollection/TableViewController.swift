@@ -71,7 +71,7 @@ class TableViewController: UITableViewController, XMLCarrier {
         if let count = response {
             let ret = Int(count.data.attributes["num_results"]!)!
             
-            navigationItem.title = " \(ret) Results Returned"
+            navigationItem.title = "Nate's Metar Minder Rev 1.0b" //" \(ret) Results Returned"
             return ret
         } else {
             return 0
