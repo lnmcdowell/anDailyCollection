@@ -55,19 +55,28 @@ public class FAAGetter {
                     }
                 }//outer while iterator
                 //switch sender.isKind(of: TableViewController)
-                if sender is CollectionViewController {
-                let boss = sender as! CollectionViewController
-               
-                boss.response = xml.response
+           
+                var senderUniversal = sender as! XMLCarrier
+                senderUniversal.xmlResponse = xml.response
+                senderUniversal.reloadDataExt()
                 
-                boss.collectionView.reloadData()
-                } else {
-                    let boss = sender as! TableViewController
                 
-                    boss.response = xml.response
-                    
-                    boss.tableView.reloadData()
-                }
+//                if sender is CollectionViewController {
+//                let boss = sender as! CollectionViewController
+//
+//                boss.response = xml.response
+//
+//                boss.collectionView.reloadData()
+//                } else {
+//                    let boss = sender as! TableViewController
+//
+//                    boss.response = xml.response
+//
+//                    boss.tableView.reloadData()
+//                }
+                
+                
+                
             }//end if response data
            
             

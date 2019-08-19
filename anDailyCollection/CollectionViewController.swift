@@ -23,7 +23,27 @@ struct DataNode {
 
 
 
-class CollectionViewController: UICollectionViewController {
+class CollectionViewController: UICollectionViewController, XMLCarrier {
+    func reloadDataExt() {
+        self.collectionView.reloadData()
+    }
+    
+    
+    /////////////
+   
+        var xmlResponse: XML.Accessor?{
+            get{
+                
+                return response!
+                
+                
+            } set(newValue){
+                response = newValue
+            }
+        }
+        /////////////////
+
+    
     var data:[DataNode] = [DataNode]()
     var metar:Metar?
    
@@ -79,7 +99,7 @@ class CollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        if self.response != nil {
+        if self.xmlResponse != nil {
           hideLoadingHUD()
         }
         return 1

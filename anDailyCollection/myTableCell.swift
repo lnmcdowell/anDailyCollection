@@ -27,6 +27,7 @@ class myTableCell: UITableViewCell {
                 ////altView.text = metar_acc.altim_in_hg.text ?? "Alt"
                 let dateFormatter = ISO8601DateFormatter()
                 dateFormatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
+               
                 let date = dateFormatter.date(from: metar_acc.observation_time.text!)
                 
                 print(date)

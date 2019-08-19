@@ -11,8 +11,25 @@ import MBProgressHUD
 import SwiftyXMLParser
 
 fileprivate let CELL_ID = "CELL_ID"
-
-class TableViewController: UITableViewController {
+/////////////
+class TableViewController: UITableViewController, XMLCarrier {
+    func reloadDataExt() {
+        self.tableView.reloadData()
+    }
+    
+    var xmlResponse: XML.Accessor?{
+        get{
+            
+            return response
+            
+    
+        } set(newValue){
+            response = newValue
+        }
+    }
+    
+    
+/////////////////
 
    
     
@@ -23,9 +40,8 @@ class TableViewController: UITableViewController {
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-        navigationItem.title = "CView from Scratch"
-        let fl = UICollectionViewFlowLayout()
-        fl.itemSize = CGSize(width: 190, height: 150)
+        navigationItem.title = "TView from Scratch"
+     
         showLoadingHUD()
         //////////////////////////////////////////
         let fAAGetter:FAAGetter = FAAGetter()
@@ -44,7 +60,7 @@ class TableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        if self.response != nil {
+        if self.xmlResponse != nil {
             hideLoadingHUD()
         }
         return 1
@@ -99,6 +115,9 @@ class TableViewController: UITableViewController {
 
     }
    
+   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
 
     /*
     // Override to support conditional rearranging of the table view.

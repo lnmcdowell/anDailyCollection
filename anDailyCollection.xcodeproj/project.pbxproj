@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F08CE11230A0A9300ACBA64 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F08CE10230A0A9300ACBA64 /* ViewExtensions.swift */; };
 		2FEF20092308B8A3003F01A5 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF20082308B8A3003F01A5 /* TableViewController.swift */; };
 		2FEF200B2308BA9D003F01A5 /* myTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEF200A2308BA9D003F01A5 /* myTableCell.swift */; };
 		677BF18723059EC600E2AC4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677BF18623059EC600E2AC4A /* AppDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F08CE10230A0A9300ACBA64 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		2FEF20082308B8A3003F01A5 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		2FEF200A2308BA9D003F01A5 /* myTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myTableCell.swift; sourceTree = "<group>"; };
 		351D81754250E5DEE473DEB5 /* Pods_anDailyCollection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_anDailyCollection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +84,7 @@
 				67D9B7C42306FCCE001EAE2C /* Objects.swift */,
 				2FEF20082308B8A3003F01A5 /* TableViewController.swift */,
 				2FEF200A2308BA9D003F01A5 /* myTableCell.swift */,
+				2F08CE10230A0A9300ACBA64 /* ViewExtensions.swift */,
 			);
 			path = anDailyCollection;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				2FEF20092308B8A3003F01A5 /* TableViewController.swift in Sources */,
 				2FEF200B2308BA9D003F01A5 /* myTableCell.swift in Sources */,
 				677BF19B2305A11E00E2AC4A /* myCell.swift in Sources */,
+				2F08CE11230A0A9300ACBA64 /* ViewExtensions.swift in Sources */,
 				67D9B7C32306FA99001EAE2C /* FAAGetter.swift in Sources */,
 				677BF18723059EC600E2AC4A /* AppDelegate.swift in Sources */,
 				67D9B7C52306FCCE001EAE2C /* Objects.swift in Sources */,
