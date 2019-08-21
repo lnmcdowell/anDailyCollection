@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("MainViewController loaded")
+
         navigationItem.title = "Metar Minder Home"
         setupViews()
         self.view.backgroundColor = .green

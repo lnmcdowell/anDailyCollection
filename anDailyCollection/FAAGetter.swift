@@ -40,13 +40,13 @@ public class FAAGetter {
                 while let next = iterator.next(){
                     if let txt = next.raw_text.text{
                         
-                    print(txt)
+//                    print(txt)
                         let cc = next.sky_condition.makeIterator()
                         while let nextcc = cc.next(){
                             if let bases = nextcc.attributes["cloud_base_ft_agl"]{
                             if let outpt = Int(bases) {
                               
-                                print("\(outpt)")
+//                                print("\(outpt)")
                             }
                             }
                         }//inner while iterator
@@ -84,7 +84,6 @@ public class FAAGetter {
             
         }//end response
     
-            print("returning from Metar function")
         
     }
 }

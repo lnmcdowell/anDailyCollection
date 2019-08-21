@@ -157,9 +157,9 @@ class TableViewController: UITableViewController, XMLCarrier {
     override func willMove(toParent parent: UIViewController?) {
         super.willMove(toParent: parent)
         if parent == nil{
-            print("Nill parent")
+            print("Nill parent, I'm going away")
         }else{
-            print("Going back seen willMove")
+            print("TableView being pushed to stack")
         }
     }
 }

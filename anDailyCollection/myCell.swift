@@ -15,7 +15,7 @@ class myCell: UICollectionViewCell {
             if let metar_acc = metar_accessor {
                 ageView.text = metar_acc.flight_category.text
                 
-                   //print(metar_acc.flight_category.text ?? "No FC")
+                
                 titleView.text = metar_acc.station_id.text ?? "None"
                 rawView.text = metar_acc.raw_text.text ?? "No raw text"
                 nameView.text = "default"
@@ -27,11 +27,11 @@ class myCell: UICollectionViewCell {
                 let altimeterSetting = metar_acc.altim_in_hg.double ?? 0
                 altView.text = String(format: "%.2f", altimeterSetting)
                 ////altView.text = metar_acc.altim_in_hg.text ?? "Alt"
-                let dateFormatter = ISO8601DateFormatter()
-                dateFormatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
-                let date = dateFormatter.date(from: metar_acc.observation_time.text!)
-                
-                print(date)
+//                let dateFormatter = ISO8601DateFormatter()
+//                dateFormatter.timeZone = TimeZone(identifier: TimeZone.current.identifier)
+//                let date = dateFormatter.date(from: metar_acc.observation_time.text!)
+//                
+             
             }
         }
     }

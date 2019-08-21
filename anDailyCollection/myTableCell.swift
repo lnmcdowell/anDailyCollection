@@ -13,7 +13,7 @@ class myTableCell: UITableViewCell {
             if let metar_acc = metar_accessor {
                 condView.text = metar_acc.flight_category.text
                 
-                //print(metar_acc.flight_category.text ?? "No FC")
+               
                 titleView.text = metar_acc.station_id.text ?? "None"
                 rawView.text = metar_acc.raw_text.text ?? "No raw text"
                 nameView.text = "default"
@@ -26,7 +26,7 @@ class myTableCell: UITableViewCell {
                 }
                 let altimeterSetting = metar_acc.altim_in_hg.double ?? 0
                 altView.text = String(format: "%.2f", altimeterSetting)
-                ////altView.text = metar_acc.altim_in_hg.text ?? "Alt"
+              
                 
                 tempView.text = metar_acc.temp_c.text! + "/" + metar_acc.dewpoint_c.text!
                 
@@ -40,30 +40,21 @@ class myTableCell: UITableViewCell {
          ///////////////////////////////////////////////////////
                  formatter.timeZone = TimeZone.current
                 formatter.dateFormat = "HH:mm"
-                print(formatter.string(from: date!))
+                //print(formatter.string(from: date!)) // shows HH:mm format perfectly
                 
                 let calendar = Calendar.current
-                let comp = calendar.dateComponents([.hour, .minute], from: date!)
-                let hour = comp.hour
-                let minute = comp.minute
-                print(hour!)
-                print(minute!)
-                
+//                let comp = calendar.dateComponents([.hour, .minute], from: date!)
+//                let hour = comp.hour
+//                let minute = comp.minute
+//                print(hour!)
+//                print(minute!)
+//
                 
                 ///////////Time Since//////////////////
                 let interval = calendar.dateComponents([.hour, .minute], from: date!, to: Date())
                 
                 var prettyTime = ""
-//                if interval.hour == 0 {
-//                    elapsedView.text = "\(interval.minute!) min old"
-//                }
-//                else if interval.hour == 1 {
-//                elapsedView.text = "\(interval.hour!) hr:\(interval.minute!) min old"
-//                }
-//                else {
-//                     elapsedView.text = "\(interval.hour!) hrs:\(interval.minute!) min old"
-//                }
-                
+
                 switch interval.hour! {
                 case 0: break
                 

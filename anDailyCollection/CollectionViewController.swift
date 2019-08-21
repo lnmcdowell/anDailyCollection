@@ -121,7 +121,7 @@ class CollectionViewController: UICollectionViewController, XMLCarrier {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CELL_ID, for: indexPath) as! myCell
-        print("getting cell")
+       
         //cell.data = data[indexPath.item]
       
         
