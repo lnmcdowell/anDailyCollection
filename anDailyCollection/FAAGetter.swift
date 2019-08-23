@@ -35,9 +35,10 @@ public class FAAGetter {
 //                }
                 //print(datastring)// the top title of iTunes app raning.
             
-               
+                var listOfMetarAccessors: [XML.Accessor] = []
               let iterator = xml.response.data.METAR.makeIterator()
                 while let next = iterator.next(){
+                    listOfMetarAccessors.append(next)
                     if let txt = next.raw_text.text{
                         
 //                    print(txt)
@@ -55,6 +56,8 @@ public class FAAGetter {
                         
                     }
                 }//outer while iterator
+                //redux
+                store.Dispatch(action: addToMetarList(metars:listOfMetarAccessors))
                 //switch sender.isKind(of: TableViewController)
            
                 var senderUniversal = sender as! XMLCarrier

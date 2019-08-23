@@ -12,7 +12,12 @@ import SwiftyXMLParser
 
 fileprivate let CELL_ID = "CELL_ID"
 /////////////
-class TableViewController: UITableViewController, XMLCarrier {
+class TableViewController: UITableViewController, XMLCarrier, StoreSubscriber {
+    func newState(state: State) {
+        
+        print("received \((state as? AppState)?.message ?? "X") back from fx")
+    }
+    
     func reloadDataExt() {
         self.tableView.reloadData()
     }
@@ -37,7 +42,7 @@ class TableViewController: UITableViewController, XMLCarrier {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        store.subscribe(self)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         navigationItem.title = "TView from Scratch"
@@ -62,6 +67,9 @@ class TableViewController: UITableViewController, XMLCarrier {
         // #warning Incomplete implementation, return the number of sections
         if self.xmlResponse != nil {
             hideLoadingHUD()
+            ////////////
+            store.Dispatch(action: getMetarAction(station_id: "from Table View"))
+            ///////////
         }
         return 1
     }
