@@ -80,7 +80,7 @@ class SFCMapViewController: UIViewController {
     
     @objc func LoadMore(){
     
-    print("Load more")
+    //print("Load more")
         sv.removeArrangedSubview(loadMoreButton)
         imgList.forEach {
             let iv = UIImageView()

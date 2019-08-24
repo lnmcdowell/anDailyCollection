@@ -56,12 +56,12 @@ func appReducer(_ action:Action,_ state: State?)->State {
     switch action {
     case let action as getMetarAction:
         newState.message = "metar redux state"
-        print(newState)
-        print("metar redux")
-        print(action)
+        //print(newState)
+        //print("metar redux")
+        //print(action)
     case let action as addToMetarList:
         action.metars.forEach {newState.listOfMetars.append($0)}
-        print("added \(action.metars.count)")
+        //print("added \(action.metars.count)")
     case let action as navigationAction:
         //this is not asyncronous, so I'm not dispatching to main queue
         action.currentScreen.navigationController?.pushViewController(action.nextScreen, animated: true)
@@ -71,7 +71,7 @@ func appReducer(_ action:Action,_ state: State?)->State {
         action.listOfStations.forEach {
             //overwrite if previous list is present from same station, otherwise just add in
             if newState.listOfStations.contains($0){
-                print("overwriting")
+                //print("overwriting")
                 let i = newState.listOfStations.firstIndex(of: $0)
                 newState.listOfStations.remove(at: i!)
                  newState.listOfStations.append($0)
@@ -81,7 +81,7 @@ func appReducer(_ action:Action,_ state: State?)->State {
             }
         }
     default:
-        print("going redux default")
+        //print("going redux default")
         break
     }
     return newState
