@@ -17,6 +17,7 @@
 		677BF19923059FAF00E2AC4A /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677BF19823059FAF00E2AC4A /* CollectionViewController.swift */; };
 		677BF19B2305A11E00E2AC4A /* myCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677BF19A2305A11E00E2AC4A /* myCell.swift */; };
 		677BF19D2305ADA400E2AC4A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677BF19C2305ADA400E2AC4A /* Extensions.swift */; };
+		67D7C3452311792300420D65 /* SFCMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D7C3442311792300420D65 /* SFCMapViewController.swift */; };
 		67D9B7C32306FA99001EAE2C /* FAAGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D9B7C22306FA99001EAE2C /* FAAGetter.swift */; };
 		67D9B7C52306FCCE001EAE2C /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67D9B7C42306FCCE001EAE2C /* Objects.swift */; };
 		67F351302310877500DABECA /* simpleRedux.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F3512F2310877500DABECA /* simpleRedux.swift */; };
@@ -39,6 +40,7 @@
 		677BF19823059FAF00E2AC4A /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		677BF19A2305A11E00E2AC4A /* myCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myCell.swift; sourceTree = "<group>"; };
 		677BF19C2305ADA400E2AC4A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		67D7C3442311792300420D65 /* SFCMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFCMapViewController.swift; sourceTree = "<group>"; };
 		67D9B7C22306FA99001EAE2C /* FAAGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAAGetter.swift; sourceTree = "<group>"; };
 		67D9B7C42306FCCE001EAE2C /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
 		67F3512F2310877500DABECA /* simpleRedux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simpleRedux.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				2F088D9A230B47C000475633 /* MainViewController.swift */,
 				67F3512F2310877500DABECA /* simpleRedux.swift */,
 				67F351312310938F00DABECA /* Implement_Redux.swift */,
+				67D7C3442311792300420D65 /* SFCMapViewController.swift */,
 			);
 			path = anDailyCollection;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				2F08CE11230A0A9300ACBA64 /* ViewExtensions.swift in Sources */,
 				67F351302310877500DABECA /* simpleRedux.swift in Sources */,
 				67F351322310938F00DABECA /* Implement_Redux.swift in Sources */,
+				67D7C3452311792300420D65 /* SFCMapViewController.swift in Sources */,
 				67D9B7C32306FA99001EAE2C /* FAAGetter.swift in Sources */,
 				677BF18723059EC600E2AC4A /* AppDelegate.swift in Sources */,
 				67D9B7C52306FCCE001EAE2C /* Objects.swift in Sources */,
