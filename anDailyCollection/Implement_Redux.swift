@@ -64,9 +64,14 @@ func appReducer(_ action:Action,_ state: State?)->State {
         //print("added \(action.metars.count)")
     case let action as navigationAction:
         //this is not asyncronous, so I'm not dispatching to main queue
+        DispatchQueue.main.async {
+            
+       
         action.currentScreen.navigationController?.pushViewController(action.nextScreen, animated: true)
         newState.currentScreen = action.nextScreen
-        newState.page = type(of: action.nextScreen).description()
+            newState.page = type(of: action.nextScreen).description()
+            
+        }
     case let action as addStationsWithMetars:
         action.listOfStations.forEach {
             //overwrite if previous list is present from same station, otherwise just add in

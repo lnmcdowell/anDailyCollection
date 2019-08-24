@@ -45,10 +45,10 @@ public class FAAGetter {
                     var currentStation = Station()
                     currentStation.name = next.station_id.text ?? ""
                     if listOfStations.contains(currentStation){
-                        print("\(next.station_id.text ?? "") present already")
+                       // print("\(next.station_id.text ?? "") present already")
                     } else {
                         listOfStations.append(currentStation)
-                        print("added \(next.station_id.text ?? "")")
+                      //  print("added \(next.station_id.text ?? "")")
                     }
                     if let txt = next.raw_text.text{
                         
