@@ -23,6 +23,7 @@ class SFCMapViewController: UIViewController {
         
         self.view.addSubview(myScrollView)
         
+        
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .fill
@@ -37,6 +38,7 @@ class SFCMapViewController: UIViewController {
         
         myScrollView.isScrollEnabled = true
         myScrollView.showsHorizontalScrollIndicator = true
+        myScrollView.clipsToBounds = false
         //myScrollView.contentSize.width = 1200
         
         //self.view.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height).isActive = true
@@ -54,8 +56,8 @@ class SFCMapViewController: UIViewController {
         SFCImageView.doConstraints(top: stackView.topAnchor, leading: stackView.leadingAnchor, bottom: nil, trailing: SFC2ndImageView.leadingAnchor, topPad: 0, leadPad: 0, botPad: 0, trailPad: 0, width: 400, height: 400)
   
    
-        SFC2ndImageView.doConstraints(top: SFCImageView.topAnchor, leading: SFCImageView.trailingAnchor, bottom: SFCImageView.bottomAnchor, trailing: SFC3rdImageView.leadingAnchor, topPad: 5, leadPad: 10, botPad: -5, trailPad: 0, width: 400, height: 0)
-         SFC3rdImageView.doConstraints(top: SFCImageView.topAnchor, leading: SFC2ndImageView.trailingAnchor, bottom: SFCImageView.bottomAnchor, trailing: nil, topPad: 5, leadPad: 10, botPad: -5, trailPad: 0, width: 400, height: 0)
+        SFC2ndImageView.doConstraints(top: SFCImageView.topAnchor, leading: SFCImageView.trailingAnchor, bottom:nil, trailing: SFC3rdImageView.leadingAnchor, topPad: 5, leadPad: 0, botPad: 0, trailPad: 0, width: 400, height: 400)
+         SFC3rdImageView.doConstraints(top: SFCImageView.topAnchor, leading: SFC2ndImageView.trailingAnchor, bottom: nil, trailing: nil, topPad: 5, leadPad: 0, botPad: 0, trailPad: 0, width: 400, height: 400)
         //make this look a little shorter to simulate 3d depth around center image
         
     }
