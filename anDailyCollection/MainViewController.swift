@@ -17,7 +17,7 @@ class MainViewController: UIViewController, StoreSubscriber {
     override func viewDidLoad() {
         super.viewDidLoad()
         store.subscribe(self)
-        navigationItem.title = "Metar Minder Home"
+        navigationItem.title = "Home"
         setupViews()
         self.view.backgroundColor = .green
      

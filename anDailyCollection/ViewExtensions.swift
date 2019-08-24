@@ -54,3 +54,46 @@ extension UIView {
         self.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
     }
 }
+
+//var imageCache = [String: UIImage]()
+var imageCache = NSCache<AnyObject, AnyObject>()
+
+extension UIImageView {
+    public func urlToImg(urlString:String){
+        print("entered")
+        
+      //  if let image = imageCache[urlString]{
+        if let image = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
+            self.image = image
+            print("from cache")
+        } else {
+        
+      let websession = URLSession.shared.dataTask(with: URL(string: urlString)!, completionHandler: { (data,response,error) ->
+            Void in
+            print(response.debugDescription)
+            if error != nil {
+                print(error.debugDescription)
+                return
+            }
+        
+        if let rx = response as? HTTPURLResponse {
+            print(rx.statusCode)
+        }
+            if let img = data {
+                print("from web")
+                
+                DispatchQueue.main.async {
+                    let image = UIImage(data: img, scale: 1)
+                    self.image = image
+                    
+                    //imageCache[urlString] = image // cache in dictionary under url string
+                    imageCache.setObject(image!, forKey: urlString as AnyObject)
+                }
+            
+            }
+        })
+        websession.resume()
+        //could asign session to variable, then call its resume() method
+        }
+    }
+}

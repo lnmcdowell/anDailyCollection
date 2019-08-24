@@ -12,14 +12,30 @@ class SFCMapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Prog Charts"
+       self.edgesForExtendedLayout = []
         
-        // Do any additional setup after loading the view.
-        setupViews()
+        
+        
+        self.view.addSubview(SFCImageView)
+        
+        let mv = self.view!
+  
+        SFCImageView.doConstraints(top: mv.topAnchor, leading: mv.leadingAnchor, bottom: nil, trailing: nil, topPad: 20, leadPad: 0, botPad: 0, trailPad: 0, width: 400, height: 300)
+
+        self.view.addSubview(SFC2ndImageView)
+        SFC2ndImageView.doConstraints(top: SFCImageView.bottomAnchor, leading: mv.leadingAnchor, bottom: nil, trailing: nil, topPad: 20, leadPad: 0, botPad: 0, trailPad: 0, width: 400, height: 300)
     }
+    
+//not needed below after change to official NSCache()
+//    override func didReceiveMemoryWarning() {
+//        print("memory warning")
+//        [String: UIImage]() //refresh/dump cache
+//    }
     
     func setupViews(){
         let myScrollView = UIScrollView()
-        self.view.frame = UIScreen.main.bounds
+
         
         self.view.addSubview(myScrollView)
           myScrollView.stickToContainer(container: self.view)
@@ -28,7 +44,7 @@ class SFCMapViewController: UIViewController {
         greenView.axis = .horizontal
         greenView.alignment = .top
         greenView.spacing = 0
-        greenView.distribution = .fillProportionally
+        greenView.distribution = .fill
         
         greenView.backgroundColor = UIColor.green
         
@@ -40,7 +56,7 @@ class SFCMapViewController: UIViewController {
         greenView.topAnchor.constraint(equalTo: myScrollView.topAnchor).isActive = true
         greenView.bottomAnchor.constraint(equalTo: myScrollView.bottomAnchor).isActive = true
         greenView.heightAnchor.constraint(equalTo: myScrollView.heightAnchor).isActive = true
-        greenView.widthAnchor.constraint(equalToConstant: 4500).isActive = true
+        greenView.widthAnchor.constraint(equalToConstant: 2500).isActive = true
         
         
         
@@ -113,16 +129,21 @@ class SFCMapViewController: UIViewController {
     var SFCImageView:UIImageView = {
        let iv = UIImageView()
         iv.contentMode = .scaleAspectFit
-
-        iv.imageFromUrl(urlString: "https://www.aviationweather.gov/data/products/progs/F000_wpc_sfc.gif", me: iv)
+       iv.translatesAutoresizingMaskIntoConstraints = false
+    //    iv.heightAnchor.constraint(equalToConstant: 400).isActive = true
+   //     iv.widthAnchor.constraint(equalToConstant: 400).isActive = true
+        //iv.imageFromUrl(urlString: "https://www.aviationweather.gov/data/products/progs/F000_wpc_sfc.gif", me: iv)
+        iv.urlToImg(urlString: "https://www.aviationweather.gov/data/products/progs/F000_wpc_sfc.gif")
         return iv
     }()
     
     var SFC2ndImageView:UIImageView = {
         let av = UIImageView()
         av.contentMode = .scaleAspectFit
- 
-        av.imageFromUrl(urlString: "https://www.aviationweather.gov/data/products/progs/F006_wpc_sfc.gif", me: av)
+       av.translatesAutoresizingMaskIntoConstraints = false
+   //     av.heightAnchor.constraint(equalToConstant: 400).isActive = true
+    //    av.widthAnchor.constraint(equalToConstant: 400).isActive = true
+        av.urlToImg(urlString: "https://www.aviationweather.gov/data/products/progs/F006_wpc_prog.gif")
         return av
     }()
     
