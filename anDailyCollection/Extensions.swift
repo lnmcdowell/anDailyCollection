@@ -31,4 +31,10 @@ extension UIView {
             self.heightAnchor.constraint(equalToConstant: height).isActive = true
         }
     }
+    func setWH(width:CGFloat, height:CGFloat){
+        self.translatesAutoresizingMaskIntoConstraints = false
+   
+      self.widthAnchor.constraint(equalToConstant: width).isActive = true
+        self.heightAnchor.constraint(equalToConstant: height).isActive = true
+    }
 }
