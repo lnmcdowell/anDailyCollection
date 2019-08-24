@@ -8,11 +8,15 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, StoreSubscriber {
+    func newState(state: State) {
+        //do nothing
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        store.subscribe(self)
         navigationItem.title = "Metar Minder Home"
         setupViews()
         self.view.backgroundColor = .green
@@ -31,8 +35,8 @@ class MainViewController: UIViewController {
     }
 
     @objc func goButtonPressed(sender:UIButton){
-    self.navigationController?.pushViewController(TableViewController(), animated: true)
-    
+   // self.navigationController?.pushViewController(TableViewController(), animated: true)
+        store.Dispatch(action: navigationAction(currentScreen: self, nextScreen: TableViewController()))
     }
     
     var goButton:UIButton = {
