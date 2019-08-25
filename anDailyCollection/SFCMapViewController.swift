@@ -35,14 +35,16 @@ class SFCMapViewController: UIViewController {
     
     
     func setupViews(){
-        let myScrollView = UIScrollView()
+        let myScrollView = UIScrollView(frame: self.view.bounds)//1*changed to set frame on init
         self.view.addSubview(myScrollView)
         
-        myScrollView.stickToContainer(container: self.view)
-        myScrollView.widthAnchor.constraint(equalTo:self.view.widthAnchor).isActive = true
-   
-        myScrollView.contentSize.width = 400
-        myScrollView.contentSize.height = 3200
+        //2*commented these two lines out
+//        myScrollView.stickToContainer(container: self.view)
+//        myScrollView.widthAnchor.constraint(equalTo:self.view.widthAnchor).isActive = true
+        myScrollView.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.flexibleWidth.rawValue | UIView.AutoresizingMask.flexibleHeight.rawValue)
+        
+        myScrollView.contentSize.width = sv.bounds.width//400
+       myScrollView.contentSize.height = 1200// SFCImageView.bounds.height * 3//3200
         myScrollView.showsVerticalScrollIndicator = true
        // myScrollView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
         myScrollView.flashScrollIndicators()
@@ -51,14 +53,16 @@ class SFCMapViewController: UIViewController {
         sv.axis = .vertical
         sv.spacing = 20
         sv.distribution = .fillProportionally
+     
         sv.addArrangedSubview(SFCImageView)
         sv.addArrangedSubview(SFC2ndImageView)
         sv.addArrangedSubview(SFC3rdImageView)
         sv.addArrangedSubview(loadMoreButton)
 
-        SFCImageView.setWH(width: 400, height: 300)
-        SFC2ndImageView.setWH(width: 400, height: 300)
-        SFC3rdImageView.setWH(width: 400, height: 300)
+       // SFCImageView.setWH(width: 400, height: 300)
+        
+        //SFC2ndImageView.setWH(width: 400, height: 300)
+        //SFC3rdImageView.setWH(width: 400, height: 300)
         
  
         setupLoadMoreButton()
@@ -69,8 +73,8 @@ class SFCMapViewController: UIViewController {
     loadMoreButton.setTitle("Load More Results", for: .normal)
     loadMoreButton.layer.cornerRadius = 10
       //  loadMoreButton.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
-    loadMoreButton.translatesAutoresizingMaskIntoConstraints = false
-    loadMoreButton.setWH(width: 400, height: 100)
+//    loadMoreButton.translatesAutoresizingMaskIntoConstraints = false
+    //loadMoreButton.setWH(width: 400, height: 100)
     loadMoreButton.layer.backgroundColor = UIColor.blue.cgColor
     loadMoreButton.titleLabel?.font = UIFont(name: "GillSans", size: 30)
     loadMoreButton.titleLabel?.textColor = .white
@@ -84,11 +88,11 @@ class SFCMapViewController: UIViewController {
         sv.removeArrangedSubview(loadMoreButton)
         imgList.forEach {
             let iv = UIImageView()
-            iv.contentMode = .scaleAspectFit
-            iv.translatesAutoresizingMaskIntoConstraints = false
+            iv.contentMode = .scaleAspectFill//.scaleAspectFit
+//            iv.translatesAutoresizingMaskIntoConstraints = false
             iv.urlToImg(urlString: $0)
             sv.addArrangedSubview(iv)
-            iv.setWH(width: 400, height: 300)
+           // iv.setWH(width: 400, height: 300)
         }
         setupEndButton()
     }
@@ -98,14 +102,14 @@ class SFCMapViewController: UIViewController {
     endButton.setTitle("End of Results", for: .normal)
     endButton.layer.cornerRadius = 10
     //  loadMoreButton.setContentCompressionResistancePriority(UILayoutPriority.defaultLow, for: .horizontal)
-    endButton.translatesAutoresizingMaskIntoConstraints = false
+//    endButton.translatesAutoresizingMaskIntoConstraints = false
    
     endButton.layer.backgroundColor = UIColor.blue.cgColor
     endButton.titleLabel?.font = UIFont(name: "GillSans", size: 30)
     endButton.titleLabel?.textColor = .white
     
     sv.addArrangedSubview(endButton)
-    endButton.setWH(width: 400, height: 100)
+   // endButton.setWH(width: 400, height: 100)
     
     }
 //not needed below after change to official NSCache()
@@ -131,8 +135,10 @@ class SFCMapViewController: UIViewController {
     
     var SFCImageView:UIImageView = {
        let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
-       iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.contentMode = .scaleAspectFill
+        
+//       iv.translatesAutoresizingMaskIntoConstraints = false//3* commented out
+        
     //    iv.heightAnchor.constraint(equalToConstant: 400).isActive = true
    //     iv.widthAnchor.constraint(equalToConstant: 400).isActive = true
         //iv.imageFromUrl(urlString: "https://www.aviationweather.gov/data/products/progs/F000_wpc_sfc.gif", me: iv)
@@ -142,8 +148,8 @@ class SFCMapViewController: UIViewController {
     
     var SFC2ndImageView:UIImageView = {
         let av = UIImageView()
-        av.contentMode = .scaleAspectFit
-       av.translatesAutoresizingMaskIntoConstraints = false
+        av.contentMode = .scaleAspectFill
+//       av.translatesAutoresizingMaskIntoConstraints = false
    //     av.heightAnchor.constraint(equalToConstant: 400).isActive = true
     //    av.widthAnchor.constraint(equalToConstant: 400).isActive = true
         av.urlToImg(urlString: "https://www.aviationweather.gov/data/products/progs/F006_wpc_prog.gif")
@@ -152,8 +158,8 @@ class SFCMapViewController: UIViewController {
     
     var SFC3rdImageView:UIImageView = {
         let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
-        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.contentMode = .scaleAspectFill
+ //       iv.translatesAutoresizingMaskIntoConstraints = false
         iv.urlToImg(urlString: "https://www.aviationweather.gov/data/products/progs/F012_wpc_prog.gif")
         //iv.imageFromUrl(urlString: "https://www.aviationweather.gov/data/products/progs/F012_wpc_prog.gif", me: iv)
         return iv
