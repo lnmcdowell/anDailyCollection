@@ -145,6 +145,7 @@ class TableViewController: UITableViewController, XMLCarrier, StoreSubscriber {
     }
     */
     private func showLoadingHUD() {
+    
         let hud = MBProgressHUD.showAdded(to: self.tableView, animated: true)
         hud.label.text = "Loading..."
     }

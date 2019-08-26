@@ -8,10 +8,12 @@
 
 import UIKit
 
-class SFCMapViewController: UIViewController {
-
+class SFCMapViewController: UIViewController, UIScrollViewDelegate {
+    var minZoom:CGFloat = 0
     var loadMoreButton = UIButton()
       let sv = UIStackView()
+    var myScrollView:UIScrollView = UIScrollView()
+    
     
     let imgList:[String] = ["https://www.aviationweather.gov/data/products/progs/F018_wpc_prog.gif",
                             "https://www.aviationweather.gov/data/products/progs/F024_wpc_prog.gif",
@@ -25,17 +27,81 @@ class SFCMapViewController: UIViewController {
                             "https://www.aviationweather.gov/data/products/progs/F144_wpc_prog.gif",
                             "https://www.aviationweather.gov/data/products/progs/F168_wpc_prog.gif",]
     
+ 
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return sv
+    }
+    
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        print("ended zooming")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Prog Charts"
        self.edgesForExtendedLayout = []
         self.view.backgroundColor = .white
         setupViews()
+        
+      sv.backgroundColor = .yellow
+        myScrollView.isOpaque = true
+    myScrollView.backgroundColor = .red
+        setZoomScale()
     }
     
+    func setZoomScale(){
+        if SFCImageView.image != nil {
+            print("scaling")
+        let imageViewSize = SFCImageView.bounds.size
+        let scrollViewSize = myScrollView.bounds.size
+            var widthScale:CGFloat = 0
+            var heightScale:CGFloat = 0
+            //FAA SFC images are (960 by 720) in size
+            
+            print("imageViewSize is \(imageViewSize.width)")
+            if imageViewSize.width != 0 {
+                if imageViewSize.width < scrollViewSize.width{
+                    widthScale = scrollViewSize.width / imageViewSize.width
+                } else {
+                    print("reversed")
+                    widthScale = scrollViewSize.width / imageViewSize.width
+                }
+            }else{
+                 widthScale = scrollViewSize.width / 960 //width of image from FAA
+            }
+            
+//            if imageViewSize.height != 0
+//            {
+//                heightScale = scrollViewSize.height / imageViewSize.height
+//            }else{
+//                heightScale = scrollViewSize.height / 720
+//            }
+            //image is not square, so use the longer side as minimum so it
+            //really fits the screen by width.
+            
+        myScrollView.minimumZoomScale = widthScale//min(widthScale, heightScale)
+            minZoom = myScrollView.minimumZoomScale
+            print(minZoom)
+        myScrollView.zoomScale = minZoom
+            myScrollView.maximumZoomScale = 4.0
+        }else {
+            myScrollView.zoomScale = 1.0
+        }
+        
+    }
     
+    override func viewWillLayoutSubviews() {
+        print("layout")
+        print(myScrollView.contentSize.width)
+        setZoomScale()
+        
+    }
     func setupViews(){
-        let myScrollView = UIScrollView(frame: self.view.bounds)//1*changed to set frame on init
+      //1*changed to set frame on init
+        myScrollView = UIScrollView(frame: self.view.bounds)
+        myScrollView.delegate = self
+        //myScrollView.isUserInteractionEnabled = true //addedSunday
+        sv.isUserInteractionEnabled = true
         self.view.addSubview(myScrollView)
         
         //2*commented these two lines out
